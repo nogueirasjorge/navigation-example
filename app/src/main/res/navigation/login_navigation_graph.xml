@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/login_navigation_graph"
+            app:startDestination="@id/loginFragment">
+
+    <fragment android:id="@+id/loginFragment"
+              android:name="dev.nogueiras.navigation.login.presentation.LoginFragment"
+              android:label="fragment_login"
+              tools:layout="@layout/fragment_login">
+
+        <action android:id="@+id/action_login_to_recover"
+                app:destination="@id/recoverPasswordFragment"/>
+
+        <action android:id="@+id/action_login_to_dashboard"
+                app:destination="@id/dashboard_activity"/>
+
+        <action android:id="@+id/action_login_to_confirmation"
+                app:destination="@id/confirmation_dialog"/>
+    </fragment>
+
+    <fragment android:id="@+id/recoverPasswordFragment"
+              android:name="dev.nogueiras.navigation.recover.RecoverPasswordFragment"
+              android:label="fragment_recover_password"
+              tools:layout="@layout/fragment_recover_password"/>
+
+    <activity android:id="@+id/dashboard_activity" android:name="dev.nogueiras.navigation.dashboard.DashboardActivity"
+              android:label="activity_dashboard" tools:layout="@layout/activity_dashboard"/>
+
+    <dialog android:id="@+id/confirmation_dialog"
+            android:name="dev.nogueiras.navigation.widget.CreateAccountConfirmationDialog"
+            android:label="confirmation_dialog" tools:layout="@layout/fragment_create_account_confirmation">
+
+        <argument
+                android:name="username"
+                app:argType="string"/>
+
+        <action android:id="@+id/action_confirmation_to_dashboard"
+                app:destination="@id/dashboard_activity"/>
+    </dialog>
+</navigation>

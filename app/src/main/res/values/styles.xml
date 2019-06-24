@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar"/>
+
+    <style name="confirmation_dialog_style" parent="Theme.MaterialComponents.Light.Dialog">
+        <item name="android:paddingStart">24dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+</resources>

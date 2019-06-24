@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Navigation Example</string>
+    <string name="login_fragment">Login Fragment</string>
+    <string name="recover_password">Recover Password</string>
+    <string name="login">Login</string>
+    <string name="create_account_title">Create a new account?</string>
+    <string name="create_account">create</string>
+    <string name="wrong_credentials">Wrong Credentials</string>
+    <string name="confirmation_subtitle">You are going to create an account for %s</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">create</string>
+</resources>
