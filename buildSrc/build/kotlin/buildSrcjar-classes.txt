@@ -1,1 +1,0 @@
-/Users/jorge.nogueiras/dev/projects/personal/navigation-example/buildSrc/build/classes/kotlin/main/Dependencies.class:/Users/jorge.nogueiras/dev/projects/personal/navigation-example/buildSrc/build/classes/kotlin/main/TestDependencies.class:/Users/jorge.nogueiras/dev/projects/personal/navigation-example/buildSrc/build/classes/kotlin/main/Versions.class
