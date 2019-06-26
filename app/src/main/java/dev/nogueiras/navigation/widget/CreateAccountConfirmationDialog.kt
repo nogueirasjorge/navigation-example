@@ -49,10 +49,13 @@ class CreateAccountConfirmationDialog : DialogFragment() {
 
     private fun configureAcceptButton(view: View) {
         acceptButton = view.findViewById(R.id.accept)
-        acceptButton.setOnClickListener {
-            val action = CreateAccountConfirmationDialogDirections.actionConfirmationToDashboard(LoggedUser(username))
-            navigation.navigate(action)
-        }
+        acceptButton.setOnClickListener { onAcceptButtonPressed() }
+    }
+
+    private fun onAcceptButtonPressed() {
+        val action = CreateAccountConfirmationDialogDirections.actionConfirmationToDashboard(LoggedUser(username))
+        navigation.navigate(action)
+        dismiss()
     }
 
     private fun configureCancelButton(view: View) {
