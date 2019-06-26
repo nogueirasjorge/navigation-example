@@ -45,6 +45,11 @@ class LoginFragment : Fragment(), LoginView {
         configureButtons()
     }
 
+    override fun onPause() {
+        super.onPause()
+        presenter.onPause()
+    }
+
     override fun showErrorMessage(errorMessage: String) {
         wrongCredentials.text = errorMessage
         wrongCredentials.visibility = VISIBLE
@@ -76,7 +81,6 @@ class LoginFragment : Fragment(), LoginView {
     }
 
     private fun doLogin() {
-
         val username = usernameField.extract()
         val password = passwordField.extract()
         presenter.onLoginButtonPressed(Credentials(username, password))

@@ -14,6 +14,7 @@ object Versions {
 
 
 object Dependencies {
+    const val kotlinXCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
     const val material = "com.google.android.material:material:1.1.0-alpha06"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val androidXCore = "androidx.core:core-ktx:1.0.2"
