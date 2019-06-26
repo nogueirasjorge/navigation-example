@@ -10,6 +10,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.button.MaterialButton
 import dev.nogueiras.navigation.R
+import dev.nogueiras.navigation.login.presentation.LoggedUser
 
 class CreateAccountConfirmationDialog : DialogFragment() {
 
@@ -17,6 +18,7 @@ class CreateAccountConfirmationDialog : DialogFragment() {
     private lateinit var acceptButton: MaterialButton
     private lateinit var description: TextView
     private lateinit var navigation: NavController
+    private lateinit var username: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,12 +43,16 @@ class CreateAccountConfirmationDialog : DialogFragment() {
 
     private fun configureDescription(view: View) {
         description = view.findViewById(R.id.description)
-        description.text = getString(R.string.confirmation_subtitle, extractUsernameFromArguments())
+        username = extractUsernameFromArguments()
+        description.text = getString(R.string.confirmation_subtitle, username)
     }
 
     private fun configureAcceptButton(view: View) {
         acceptButton = view.findViewById(R.id.accept)
-        acceptButton.setOnClickListener { navigation.navigate(R.id.action_confirmation_to_dashboard) }
+        acceptButton.setOnClickListener {
+            val action = CreateAccountConfirmationDialogDirections.actionConfirmationToDashboard(LoggedUser(username))
+            navigation.navigate(action)
+        }
     }
 
     private fun configureCancelButton(view: View) {
