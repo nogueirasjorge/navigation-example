@@ -25,7 +25,11 @@
               tools:layout="@layout/fragment_recover_password"/>
 
     <activity android:id="@+id/dashboard_activity" android:name="dev.nogueiras.navigation.dashboard.DashboardActivity"
-              android:label="activity_dashboard" tools:layout="@layout/activity_dashboard"/>
+              android:label="activity_dashboard" tools:layout="@layout/activity_dashboard">
+        <argument
+                android:name="user"
+                app:argType="dev.nogueiras.navigation.login.presentation.LoggedUser"/>
+    </activity>
 
     <dialog android:id="@+id/confirmation_dialog"
             android:name="dev.nogueiras.navigation.widget.CreateAccountConfirmationDialog"

@@ -8,7 +8,7 @@ class LoginPresenter(private val view: LoginView, private val login: Login) {
     fun onLoginButtonPressed(credentials: Credentials) {
         try {
             val user = login(credentials)
-            view.navigateToDashboard()
+            view.navigateToDashboard(LoggedUser(user.username))
         } catch (error: WrongCredentialsException) {
             view.showErrorMessage("Wrong credentials")
         }

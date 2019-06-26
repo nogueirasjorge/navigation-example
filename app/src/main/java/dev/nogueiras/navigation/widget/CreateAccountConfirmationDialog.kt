@@ -33,7 +33,6 @@ class CreateAccountConfirmationDialog : DialogFragment() {
         configureDescription(view)
         configureCancelButton(view)
         configureAcceptButton(view)
-
     }
 
     private fun configureNavigation() {

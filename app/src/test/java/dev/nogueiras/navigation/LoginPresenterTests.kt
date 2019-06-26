@@ -5,6 +5,7 @@ import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
 import dev.nogueiras.navigation.login.core.domain.action.Login
 import dev.nogueiras.navigation.login.core.domain.model.Credentials
+import dev.nogueiras.navigation.login.presentation.LoggedUser
 import dev.nogueiras.navigation.login.core.domain.model.User
 import dev.nogueiras.navigation.login.core.domain.repository.UserRepository
 import dev.nogueiras.navigation.login.presentation.LoginPresenter
@@ -112,7 +113,7 @@ class LoginPresenterTests {
     }
 
     private fun thenNavigatesToDashboard() {
-        verify(view).navigateToDashboard()
+        verify(view).navigateToDashboard(LoggedUser(ValidUser.username))
     }
 
     private fun thenNavigatesToRecoverPassword() {

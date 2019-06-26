@@ -17,8 +17,8 @@ import dev.nogueiras.navigation.login.core.domain.model.Credentials
 
 
 class LoginFragment : Fragment(), LoginView {
-    private lateinit var presenter: LoginPresenter
 
+    private lateinit var presenter: LoginPresenter
     private lateinit var navigation: NavController
     private lateinit var wrongCredentials: TextView
     private lateinit var loginButton: MaterialButton
@@ -26,12 +26,12 @@ class LoginFragment : Fragment(), LoginView {
     private lateinit var recoverPassword: TextView
     private lateinit var usernameField: TextInputEditText
     private lateinit var passwordField: TextInputEditText
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
         presenter = LoginViewFactory.providePresenter(this)
         return view
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,16 +50,17 @@ class LoginFragment : Fragment(), LoginView {
         wrongCredentials.visibility = VISIBLE
     }
 
-    override fun navigateToDashboard() {
-        navigation.navigate(R.id.action_login_to_dashboard)
-    }
-
     override fun navigateToRecoverPassword() {
         navigation.navigate(R.id.action_login_to_recover)
     }
 
     override fun navigateToConfirmCreateAccount(username: String) {
         val action = LoginFragmentDirections.actionLoginToConfirmation(username)
+        navigation.navigate(action)
+    }
+
+    override fun navigateToDashboard(loggedUser: LoggedUser) {
+        val action = LoginFragmentDirections.actionLoginToDashboard(loggedUser)
         navigation.navigate(action)
     }
 
@@ -75,6 +76,7 @@ class LoginFragment : Fragment(), LoginView {
     }
 
     private fun doLogin() {
+
         val username = usernameField.extract()
         val password = passwordField.extract()
         presenter.onLoginButtonPressed(Credentials(username, password))
