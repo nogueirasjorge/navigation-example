@@ -4,15 +4,20 @@ import dev.nogueiras.navigation.login.core.domain.exception.WrongCredentialsExce
 import dev.nogueiras.navigation.login.core.domain.model.Credentials
 import dev.nogueiras.navigation.login.core.domain.model.User
 import dev.nogueiras.navigation.login.core.domain.repository.UserRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class Login(private val repository: UserRepository) {
-    operator fun invoke(credentials: Credentials): User {
+    suspend operator fun invoke(credentials: Credentials): User {
         val user = repository.findByEmail(credentials.username)
-        return user?.takeIf { it.hasValidPassword(credentials.password) }
-            ?: invalidUser()
+        return validateUser(user, credentials)
     }
 
-    private fun invalidUser(): User {
-        throw WrongCredentialsException()
+    private suspend fun validateUser(user: User?, credentials: Credentials) = withContext(Dispatchers.IO) {
+        user?.takeIf { it.hasValidPassword(credentials.password) } ?: invalidUser()
     }
+}
+
+private fun invalidUser(): User {
+    throw WrongCredentialsException()
 }
