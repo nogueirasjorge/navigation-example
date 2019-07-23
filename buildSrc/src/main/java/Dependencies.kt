@@ -10,11 +10,11 @@ object Versions {
     const val assertJ = "3.11.1"
     const val constraintLayout = "1.1.3"
     const val mockitoKotlin = "2.1.0"
+    const val coroutines = "1.2.2"
 }
 
-
 object Dependencies {
-    const val kotlinXCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
+    const val kotlinXCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val material = "com.google.android.material:material:1.1.0-alpha06"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val androidXCore = "androidx.core:core-ktx:1.0.2"
@@ -27,6 +27,7 @@ object Dependencies {
 
 object TestDependencies {
     const val jUnit = "junit:junit:${Versions.jUnit}"
+    const val kotlinXTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
     const val testRunner = "androidx.test:runner:1.2.0"
     const val espresso = "androidx.test.espresso:espresso-core:3.2.0"
     const val assertJ = "org.assertj:assertj-core:${Versions.assertJ}"
