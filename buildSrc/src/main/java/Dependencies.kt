@@ -1,5 +1,5 @@
 object Versions {
-    const val kotlin = "1.3.40"
+    const val kotlin = "1.3.41"
     const val jUnit = "4.12"
     const val compileSdk = 28
     const val targetSdk = 28
