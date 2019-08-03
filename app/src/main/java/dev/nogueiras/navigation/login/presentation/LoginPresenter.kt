@@ -9,7 +9,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class LoginPresenter(private val view: LoginView, private val login: Login) {
-    private lateinit var job: Job
+    private var job: Job? = null
     private val scope = CoroutineScope(Dispatchers.Main)
 
     fun onLoginButtonPressed(credentials: Credentials) {
@@ -38,7 +38,7 @@ class LoginPresenter(private val view: LoginView, private val login: Login) {
     }
 
     fun onPause() {
-        job.cancel()
+        job?.cancel()
     }
 
 }

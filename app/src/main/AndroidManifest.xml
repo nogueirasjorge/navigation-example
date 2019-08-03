@@ -9,15 +9,17 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".dashboard.DashboardActivity">
-        </activity>
         <activity android:name=".login.presentation.LoginActivity">
+            <nav-graph android:value="@navigation/login_navigation_graph"/>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".dashboard.DashboardActivity"/>
     </application>
 
 </manifest>

@@ -22,7 +22,10 @@
     <fragment android:id="@+id/recoverPasswordFragment"
               android:name="dev.nogueiras.navigation.recover.RecoverPasswordFragment"
               android:label="fragment_recover_password"
-              tools:layout="@layout/fragment_recover_password"/>
+              tools:layout="@layout/fragment_recover_password">
+
+        <deepLink android:id="@+id/deepLink" app:uri="example://recover"/>
+    </fragment>
 
     <activity android:id="@+id/dashboard_activity" android:name="dev.nogueiras.navigation.dashboard.DashboardActivity"
               android:label="activity_dashboard" tools:layout="@layout/activity_dashboard">
