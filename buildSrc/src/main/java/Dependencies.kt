@@ -5,8 +5,8 @@ object Versions {
     const val targetSdk = 28
     const val minSdk = 21
     const val buildTools = "29.0.0"
-    const val navigation = "2.1.0-alpha05"
-    const val gradle = "3.4.1"
+    const val navigation = "2.1.0-beta02"
+    const val gradle = "3.4.2"
     const val assertJ = "3.11.1"
     const val constraintLayout = "1.1.3"
     const val mockitoKotlin = "2.1.0"
